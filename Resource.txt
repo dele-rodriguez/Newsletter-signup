@@ -1,0 +1,3 @@
+Mailchimp API key: 0027c6fa91ac418b6f2819c1f1dfc261-us14
+
+List ID: 4671d29ab7
