@@ -25,13 +25,13 @@ app.post("/" , function(req , res) {
     const mailchimp = require("@mailchimp/mailchimp_marketing");
 
     mailchimp.setConfig({
-    apiKey: "e17a080ca02459323bb06157c516b3eb-us14",
-    server: "us14",
+    apiKey: process.env.MAILCHIMP_API_KEY,
+    server: MAILCHIMP_SERVER,
     });
 
     async function run() {
         try {
-            const response = await client.lists.batchListMembers("4671d29ab7", {
+            const response = await client.lists.batchListMembers(MAILCHIMP_LIST_ID, {
                 members: [
                     {
                         email_address: email,
@@ -57,6 +57,6 @@ app.post("/failure" , ( req , res ) => {
     res.redirect("/");
 });
 
-app.listen(process.env.PORT || 4000, function() {
+app.listen( 4000, function() {
     console.log("server is up and running fast!");
 });
