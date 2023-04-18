@@ -26,12 +26,12 @@ app.post("/" , function(req , res) {
 
     mailchimp.setConfig({
     apiKey: process.env.MAILCHIMP_API_KEY,
-    server: MAILCHIMP_SERVER,
+    server: process.env.MAILCHIMP_SERVER,
     });
 
     async function run() {
         try {
-            const response = await client.lists.batchListMembers(MAILCHIMP_LIST_ID, {
+            const response = await client.lists.batchListMembers(process.env.MAILCHIMP_LIST_ID, {
                 members: [
                     {
                         email_address: email,
